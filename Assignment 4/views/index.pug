@@ -1,0 +1,12 @@
+extends layouts/main-layout.pug
+
+block content
+    main
+        h1 Welcome!
+        p Welcome to the Assignment 4 index page!
+        p Please enter your username below
+        form(action="/", method="POST")
+            div
+                label(for="username") Enter Username: 
+                input#username(type="text", name="username")
+            button(type="submit") Submit

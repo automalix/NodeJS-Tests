@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #29303b;
+  color: #eee;
+}
+
+main {
+  background: #484f5e;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  margin: auto;
+  min-width: 350px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  background: #484f5e;
+}
+
+nav {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin: 0 1rem;
+  padding: 0;
+}
+
+li a {
+  text-decoration: none;
+  color: #d4d4ee;
+  transition: 0.1s ease-in-out;
+}
+
+li a:hover,
+li a:active,
+li a.active {
+  color: #fff;
+}
+
+form {
+  width: 20rem;
+  padding: 0.5rem 0.75rem;
+  background: #788399;
+  border-radius: 0.25rem;
+}
+
+form > div {
+  margin: 1rem 0;
+}
+
+label,
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+label {
+    color: #fff;
+    font-weight: bold;
+}
+
+input {
+  border: 1px solid #373a44;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.75rem;
+}
+
+button {
+  font: inherit;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #a4afca;
+  color: #212327;
+  background: #a6adc0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: 0.08s ease-in-out;
+}
+
+button:hover,
+button:active {
+  background-color: #d4dbf0;
+}
