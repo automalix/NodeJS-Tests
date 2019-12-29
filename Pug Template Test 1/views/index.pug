@@ -1,0 +1,58 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/views_styles/index_styles.css")
+
+block content
+    header#to-top
+        .gradient
+        .welcome-container
+            h1.highlight Welcome to
+            img.splash-logo(src='/images/logo/cohort11_logo_lg_alt.png', alt='Cohort 11 Dev')
+            img.splash-logo-small(src='/images/logo/cohort11_logo_lg_alt.png', alt='Cohort 11 Dev')
+            span.symbol
+                i.fas.fa-star
+            h2.tag-line We help, we create, we design
+    main#main
+        section#about
+            .content
+                h1.highlight Discover
+                h1.topic our story
+                p.symbol
+                    i.fas.fa-laptop-code
+                p We're a group of diverse web developers who were once classmates at the YWEB Career Academy. Studying together led to laughing together, which created the unbreakable connection that we now call a company.
+                h2
+                    a(href='/about') About us
+            .img-container
+                img(src='/images/cohort_logo.jpg', title='YWEB Cohort 11', alt='YWEB Cohort 11')
+        section.divider
+            h1.highlight Creative
+            h1.topic Portfoilo
+        section#portfolio
+            .img-container
+                img.align-end(src='/portfolio/fgelly/demo.jpg', title="Felix Gelly's demo site example", alt="Felix Gelly's demo site example")
+                img.align-end(src='./portfolio/cgriffith/demo.jpg', title="Chelsea Griffith's demo site example", alt="Chelsea Griffith's demo site example")
+                img.align-start(src='/portfolio/tromano/demo.jpg', title="Tony Romano's demo site example", alt="Tony Romano's demo site example")
+                img.align-start(src='/portfolio/smcnatt/demo.jpg', title="Steve McNatt's demo site example", alt="Steve McNatt's demo site example")
+            .content
+                h1.highlight Discover
+                h1.topic our work
+                p.symbol
+                    i.fas.fa-code
+                p View select highlights from our individual members' code projects.
+                h2
+                    a(href='/portfolio') View our portfoilo
+        section.divider
+            h1.highlight Our Blog
+            h1.topic For the community
+        section#blog
+            .content
+                h1.highlight Knowledge
+                h1.topic shared
+                p.symbol
+                    i.fas.fa-folder-open
+                p Knowledge is power and when we share knowledge we all grow greater as a community.
+                h2
+                    a(href='/blog') Read our blog
+            .img-container
+                img(src='/images/groupphoto.jpg', title='The Team', alt='The Team')

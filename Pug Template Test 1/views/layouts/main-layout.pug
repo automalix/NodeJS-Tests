@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        link(rel="icon", href="/images/logo/favicon.png")
+        title #{pageTitle}
+
+        link(rel="stylesheet", href="/css/master.css")
+        block styles
+
+    body
+        nav#nav.navbar.justify-content-between.navbar-expand-md.navbar-dark.bg-dark-blue
+            div.container.nav-wrap
+                a.navbar-brand(href=(path !== 'index' ? '/' : '#'), aria-label="Logo")
+                    div(alt="Cohort 11 Dev", id=(path === 'index' ? 'nav-logo-i' : 'nav-logo'))
+                button.navbar-toggler(type="button", data-toggle="collapse", data-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+                    span.navbar-toggler-icon
+                
+                div#navbarNav.collapse.navbar-collapse
+                    ul.navbar-nav.mr-auto
+                        li.nav-item(class=(path === 'index' ? 'active' : ''))
+                            a.nav-link(href=(path !== 'index' ? '/' : '#')) Home
+                        li.nav-item
+                            div.dropdown
+                                a#dropdownMenuLink.btn.btn-db.dropdown-toggle.nav-link(class=(path === 'about' || path === 'team' ? 'active' : ''), href='#', role="button",data-toggle="dropdown", aria-haspopup="true", aria-expanded="false") About Us
+                                .dropdown-menu(aria-labelledby="dropdownMenuLink")
+                                    a.dropdown-item(href="/about") About Cohort 11
+                                    a.dropdown-item(href="/team") Meet Our Team
+                        li.nav-item(class=(path === 'portfolio' ? 'active' : ''))
+                            a.nav-link(href=(path !== 'index' ? '/portfolio' : '#portfolio')) Portfolio
+                        li.nav-item(class=(path === 'blog' ? 'active' : ''))
+                            a.nav-link(href=(path !== 'index' ? '/blog' : '#blog')) Blog
+                        li.nav-item(class=(path === 'careers' ? 'active' : ''))
+                            a.nav-link(href="/careers") Careers
+                        li.nav-item(class=(path === 'contact' ? 'active' : ''))
+                            a.nav-link(href="/contact") Contact
+        .m-wrapper
+            .m-top
+            .m-contain
+                if path !== 'index'
+                    main.bg-light(role="main")
+                        section#to-top.jumbotron.text-center
+                            .container
+                                h1.p-highlight #{ jumbotron.jumbotron[path].header1 }
+                                h1.p-topic #{ jumbotron.jumbotron[path].header2 }
+                                if Array.isArray(jumbotron.jumbotron[path].text)
+                                    each element in jumbotron.jumbotron[path].text
+                                        p.h-wrap.mt-4.mx-auto #{ element }
+                                else
+                                    p.h-wrap.mt-4.mx-auto #{jumbotron.jumbotron[path].text}
+                        block content
+                else
+                    block content
+
+                footer#footer
+                    #top
+                        a.menu-link(href="#to-top")
+                            i.fas.fa-sort-up.mt-1
+                            p Top
+                    #info
+                        #locations
+                            h2 Locations
+                            ul.address-container
+                                li.mt-3
+                                    p 
+                                        span 2040 South Park Street
+                                        br
+                                        span Madison, Wi - 53713
+                        #hours
+                            h2 Hours
+                            ul.open-container
+                                li.open.mt-3
+                                    p
+                                        span Monday - Friday
+                                        br
+                                        span 8:30am - 5:30pm
+                                li.open.mt-3
+                                    p
+                                        span Saturday
+                                        br
+                                        span 8:00am - 12:00 pm
+                                li.open.mt-3
+                                    p
+                                        span Available for private consultations
+                                        br
+                                        span Hackatons on Sundays
+                    .copyright-container
+                        #copyright
+                            ul.d-flex.justify-content-center
+                                li Copyright 2019
+                                li.dot &copy;
+                                li Cohort 11 Dev
+                                li.teamLink
+                                    span &laquo;&nbsp;
+                                        a(href="/team") Meet the team
+                                    span &nbsp;&raquo;
+                            ul.d-flex.justify-content-center
+                                li Permissions and Copyright
+                                li.dot &middot;
+                                li
+                                    a(href="/contact") Contact Us
+        script(src="/js/jquery.min.js")
+        script(src="/js/popper.min.js")
+        script(src="/js/bootstrap.min.js")
+        block scripts
+                            

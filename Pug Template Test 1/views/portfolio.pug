@@ -1,0 +1,30 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/views_styles/portfolio_styles.css")
+
+block content
+    .album.py-5.bg-light
+        .container
+            .row
+                each card, i in portfolio.cards
+                    .col-md-6.mb-4
+                        .card.mb-4.box-shadow.h-100
+                            //img.card-img-top.demo-img(id=('demo-'+i), src=(card.img), alt=(card.name+'\'s demo site image'), data-toggle='modal', data-target=('#'+card.title.replace(/\s+/g, '-')))
+                            img.card-img-top(id=('demo-'+i), src=(card.img), alt=(card.name+'\'s demo site image'))
+                            .card-body
+                                h5.card-title #{card.title}
+                                p.card-text #{card.description}
+                            .card-footer
+                                .text-muted.mb-1 Coded by: 
+                                    strong #{card.name}
+                                small.text-muted.port-foot
+                                    .demo-modal
+                                        //a.trigger-modal(href='#', data-toggle='modal', data-target=('#'+card.title.replace(/\s+/g, '-')))
+                                        a(href=(card.demo), target="_blank")
+                                            i.fas.fa-external-link-alt.mr-1
+                                            span View demo
+                                    .demo-code
+                                        a(href=(card.link), target='_blank')
+                                            i.fas.fa-code-branch.mr-1
+                                            span View code

@@ -1,0 +1,40 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/views_styles/about_styles.css")
+
+block content
+    div.container.text-center.mb-4
+        div#history.py-3
+            div.row.d-flex.align-items-center.bg-white.py-2
+                div.col-8
+                    h2.mb-3.p-topic History
+                    p The group aptly named and known as Cohort 11, discovered their potential and passion for web development. Realizing they are more than just students taking a course, but a dedicated team committed to helping one another achieve success. 
+                    p Cohort 11 united in victories and struggles to form a cohesive bond. Giving birth to the idea to develop their first live website in hopes to share and expand knowledge, acquire experience and have a positive impact on the community in which they live.
+                div.col.history-img.my-2
+                    img.img-fluid.i-history.rounded(src="/images/history.jpg", alt="The Cohort 11 graduates")
+        hr
+        div#mission.py-3
+            div.row.d-flex.align-items-center.bg-white.p-2
+                div.col.my-2
+                    img.img-fluid.rounded(src="/images/mission.jpg", alt="Various Cohort 11 members working together")
+                div.col
+                    h2.my-3.p-topic Mission
+                    p Cohort 11 delivers extraordinary web design, striving for excellence while empowering community businesses to reach their clients effectively to the fullest potential.
+                    p.mt-4 We help, we create, we design.
+        hr
+        div#values.py-3
+            h2.mb-3.text-center.p-topic Values
+            div.row.align-items-center
+            div.col
+                ul#valuesList.list-group
+                    li.list-group-item Quality - Our discipline and consistent commitment to high-quality standards allows us to create pages free from errors.
+                    li.list-group-item Integrity - We reserve our loyalty and dedication to our customers in producing a quality design with ethics and honesty.
+                    li.list-group-item Collaboration - We create our innovative designs through unified teamwork. Our loyalty to our customers is of the greatest importance to our team. Collaborating with our clients to achieve their desired results is our primary focus.
+                    li.list-group-item Diversity - Our experiences and backgrounds bring a unique perspective and level of engagement to our customers.
+                    li.list-group-item Empathy - Empathy is a key element in the foundation of meaningful relationships with strong bonds. We strive to understand our client’s vision and make it come to life.
+                    li.list-group-item Unity - We stand with our team, community, and environment.
+                    li.list-group-item Open-mindedness - When everyone is talking, we are here to listen to you.
+            div.row.align-items-center
+            div.col.my-2
+                img.img-fluid.valuesImg.rounded(src="/images/values.jpg", alt="Various Cohort 11 members at the Racial Justice Summit")

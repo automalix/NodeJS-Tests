@@ -1,0 +1,41 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/views_styles/blog_styles.css")
+
+block content
+    .container.my-4
+        if blog.blogPosts.length > 0
+            each post in blog.blogPosts
+                .card.border-0
+                    .row.no-gutters
+                        .col-md-3.blogCardImg(style=('background: center/cover no-repeat url(' + post.image +')'))
+                        img.cardSmallImg(src=(post.image), alt="tech image")
+                        div.col-md-9.align-self-center
+                            div.card-body.ml-2
+                                h3.card-title #{post.title}
+                                p.card-text.blog-date 
+                                    small #{post.date} by 
+                                        span.text-muted #{post.author}
+                                p.card-text #{post.cardPost}
+                                a.btn.btn-outline-primary.mt-3(href="#", data-toggle="modal",
+                                data-target=('#'+post.title.replace(/\s+/g, '-'))) Continue Reading
+                                    i.fas.fa-angle-double-right.ml-2
+    .modalContainer
+        if blog.blogPosts.length > 0
+            each post in blog.blogPosts
+                div.modal.fade(id=(post.title.replace(/\s+/g, '-')), tabindex="-1", role="dialog", aria-labelledby="myLargeModalLabel", aria-hidden="true")
+                    div.modal-dialog.modal-dialog-centered.modal-lg
+                        div.modal-content.p-3
+                            img(src=(post.fullImage), alt="tech image")
+                            div.blog-post
+                                h3.font-weight-bold.mt-3 #{post.title}
+                                p.font-italic.mb-2 #{post.date} by 
+                                    span.text-muted #{post.author}
+                                if post.fullPost.length > 1
+                                    each line in post.fullPost
+                                        p #{line}
+                                else
+                                    p #{post.fullPost}
+                            div.modal-footer
+                                button.btn.btn-secondary(type="button", data-dismiss="modal") Close

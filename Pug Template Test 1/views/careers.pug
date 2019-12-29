@@ -1,0 +1,49 @@
+extends layouts/main-layout.pug
+
+block styles
+    link(rel="stylesheet", href="/css/views_styles/careers_styles.css")
+
+block content
+    div.album.py-5.bg-light
+        div.container
+            div.row.card-gen
+                if job.careers.length > 0
+                    each val, i in job.careers
+                        div.col-sm-6.my-2
+                            div.card.h-100
+                                div.card-body
+                                    h5.card-title #{val.title}
+                                    p.card-text #{val.card}
+                                div.card-footer
+                                    button.btn.btn-bo(type='button', data-type=('job'), data-toggle='modal', data-target=('#'+val.title.replace(/\s+/g, '-'))) Read More
+    if job.careers.length > 0
+        each pos in job.careers
+            div.modal.fade.bd-example-modal-lg(id=(pos.title.replace(/\s+/g, '-')), tabindex='-1', role='dialog', aria-labelledby='exampleModalCenterTitle', aria-hidden='true')
+                div.modal-dialog.modal-dialog-centered.modal-lg(role='document', style='max-width:1005px')
+                    div.modal-content
+                        div.modal-header
+                            h4#jobDescTitle.modal-title.m-c #{pos.title}
+                            button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                span(aria-hidden='true') &times;
+                        div.modal-body
+                            div.container
+                                div.row
+                                    div.col
+                                        #job-desc.m-c #{pos.description}
+                                div.row
+                                    div.col-md-6
+                                        h5#job-res.m-c.pt-3.pb-2 #{pos['responsibility header']}
+                                        ul#job-res-list.list-group
+                                            if pos.responsibilities.length > 0
+                                                each val in pos.responsibilities
+                                                    li.list-group-item #{ val }
+                                    div.col-md-6
+                                        h5#job-reqs.m-c.pt-3.pb-2 #{pos['skills header']}
+                                        ul#job-reqs-list.list-group
+                                            if pos.skills.length > 0
+                                                each val in pos.skills
+                                                    li.list-group-item #{ val }
+                        div.modal-footer
+                            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+                            span.d-inline-block(tabindex='0', data-toggle='tooltip', title='Not accepting applications at this time')
+                                button.btn.btn-danger.disabled(type='button', style='pointer-events: none', disabled='') Apply
